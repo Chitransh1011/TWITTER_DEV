@@ -1,3 +1,4 @@
+import Tweet from "../models/tweet.js";
 class CrudRepository{
     constructor(model){
         this.model = model;
@@ -23,16 +24,16 @@ class CrudRepository{
     }
     async get(id){
         try {
-            const result = await this.model.find({});
+            const result = await this.model.findById(id);
             return result;
         } catch (error) {
             console.log("Something went wrong in crud repo");
             throw error;
         }
     }
-    async getAll(id){
+    async getAll(){
         try {
-            const result = await this.model.findById(id);
+            const result = await this.model.find({});
             return result;
         } catch (error) {
             console.log("Something went wrong in crud repo");
