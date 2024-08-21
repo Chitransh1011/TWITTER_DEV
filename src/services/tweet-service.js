@@ -32,5 +32,9 @@ class TweetService{
         3.How to add tweet id inside all the hashtags
         */
     }
+    async get(tweetId) {
+        const tweet = await this.tweetRepository.getWithComments(tweetId);
+        return tweet;
+    }
 }
 export default TweetService;
